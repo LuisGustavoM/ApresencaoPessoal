@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Luis Gustavo Mendonça</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .tec-utilizadas {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .mostrar {
+            display: block;
+            opacity: 1;
+        }
+
+        .desc-atv-cargo {
+            padding-left: 20px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        @media print {
+            .mostrar-tecnologias {
+                display: none !important;
+            }
+        }
+    </style>
+    <script>
+        function calcularTempo(dataInicio) {
+            const inicio = new Date(dataInicio);
+            const agora = new Date();
+
+            let anos = agora.getFullYear() - inicio.getFullYear();
+            let meses = agora.getMonth() - inicio.getMonth();
+
+            if (meses < 0) {
+                anos--;
+                meses += 12;
+            }
+
+            return `${anos} ano${anos !== 1 ? 's' : ''} e ${meses} mês${meses !== 1 ? 'es' : ''}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elementosTempo = document.querySelectorAll('.calcular-tempo');
+            elementosTempo.forEach(el => {
+                const dataInicio = el.dataset.inicio;
+                el.textContent = calcularTempo(dataInicio);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const botoesMostrar = document.querySelectorAll('.mostrar-tecnologias');
+
+            // Função para alternar estado de exibição das tecnologias
+            function alternarExibicao(event) {
+                const caixaTecnologias = event.currentTarget.parentElement.nextElementSibling;
+                caixaTecnologias.classList.toggle('mostrar');
+
+                // Alterar texto do botão com base no estado da caixa de tecnologias
+                if (caixaTecnologias.classList.contains('mostrar')) {
+                    event.currentTarget.textContent = 'Ocultar Tecnologias Utilizadas';
+                } else {
+                    event.currentTarget.textContent = 'Mostrar Tecnologias Utilizadas';
+                }
+            }
+
+            // Adicionar evento de clique a cada botão
+            botoesMostrar.forEach(botao => botao.addEventListener('click', alternarExibicao));
+        });
+
+    </script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans leading-relaxed">
+
+    <!-- Container Principal -->
+    <div class="max-w-4xl mx-auto my-10 bg-white shadow-lg rounded-lg p-8">
+        <header>
+            <div class="header-container mb-12">
+                <div class="flex items-center space-x-4">
+                    <img src="https://media.licdn.com/dms/image/D4D03AQHaYBC0B7VfYw/profile-displayphoto-shrink_200_200/0/1665872035257?e=1725494400&v=beta&t=0bIX6toUp_Cnbf0M1OB3X2fQoH3_9wZTx2y272lZ9ZE"
+                        alt="Sua Foto" class="w-32 h-32 rounded-full shadow-md">
+                    <div class="header-content">
+                        <h1 class="text-4xl font-bold text-gray-900">Luis Gustavo Mendonça</h1>
+                        <p class="text-lg text-gray-500">Desenvolvedor FullStack Sênior .NET | C# | .NET | Angular
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contact-info text-right">
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:luisgustavo_M@outlook.com"
+                        class="text-blue-500">luisgustavo_M@outlook.com</a></p>
+                <p><i class="fab fa-linkedin"></i> Linkedin: <a
+                    href="https://www.linkedin.com/in/luis-gustavo-m-08b45b169/" target="_blank"
+                    rel="noopener noreferrer" class="text-blue-500">Visualizar perfil</a></p>      
+                <p><i class="fas fa-map-marker-alt"></i> Três Pontas, Minas Gerais</p>
+                <p></i> Solteiro, 25 anos</p>
+            </div>
+
+        </header>
+
+
+        <!-- Seções -->
+        <div class="space-y-10 mt-10">
+
+            <!-- Experiência Profissional -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Experiência Profissional</h2>
+                <div class="space-y-6">
+
+                    <!-- Basis tecnologia -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900">Basis Tecnologia da Informação S.A.</h3>
+                                <p class="text-gray-600">Desenvolvedor Full Stack Sênior</p>
+                            </div>
+                            <p class="text-gray-500 italic">Novembro de 2023 - Presente (<span class="calcular-tempo"
+                                    data-inicio="2022-11-01"></span>)</p>
+                        </div>
+
+                        <div class="desc-atv-cargo mt-10">
+                            <h3 class="text-lg font-semibold text-gray-900">Atividades exercidas</h3>
+                            <p class="text-gray-600 text-justify">Desenvolvedor Full Stack, alocado no órgão público
+                                SUSEP. Responsável pela manutenção e
+                                criação de aplicações .NET Core com integração ao BUCKET S3 da AWS. Desenvolvimento de
+                                aplicações em Angular, abrangendo as versões 8 a 17.</p>
+                        </div>
+
+                        <div class="text-right mt-5">
+                            <button type="button" class="
+                                mostrar-tecnologias text-white bg-blue-600 hover:bg-blue-800 
+                                focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-800 
+                                font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                Ocultar Tecnologias Utilizadas
+                            </button>
+                        </div>
+
+                        <!-- Container Principal -->
+
+                        <!-- Caixa de Tecnologias Utilizadas -->
+                        <div class="mostrar tec-utilizadas bg-gray-50 p-6 rounded-lg text-sm mt-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Algumas das tecnologias utilizadas</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 mt-4">
+                                <li>C#</li>
+                                <li>.Net Core</li>
+                                <li>Angular (versões 8 a 16) com Typescript</li>
+                                <li>Entity Framework Core</li>
+                                <li>Dapper</li>
+                                <li>AWS S3</li>
+                                <li>Arquitetura e código limpo</li>
+                                <li>CQRS e Mediator</li>
+                                <li>SOLID</li>
+                                <li>Banco de dados SQL Server</li>
+                                <li>Selenium para testes automatizados</li>
+                                <li>Git com TFS (controle de código e configuração pipeline CI/CD)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cocatrel  -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900">Cocatrel - Cooperativa dos Cafeicultores
+                                    da Zona de Três Pontas</h3>
+                                <p class="text-gray-600">Desenvolvedor Full Stack Pleno</p>
+                            </div>
+                            <p class="text-gray-500 italic">Julho de 2021 - Agosto de 2022 </p>
+                        </div>
+
+                        <div class="desc-atv-cargo mt-10">
+                            <h3 class="text-lg font-semibold text-gray-900">Atividades exercidas</h3>
+                            <p class="text-gray-600 text-justify">Desenvolvedor Full Stack responsável pela manutenção e
+                                desenvolvimento de aplicações .NET Core, bem como aplicações em Angular na versão 13.
+                                Também envolvido no desenvolvimento de aplicações mobile utilizando Flutter e Dart, além
+                                de atuação em projetos legados MVC com .NET Framework.
+                        </div>
+
+                        <div class="text-right mt-5">
+                            <button type="button" class="
+                                mostrar-tecnologias text-white bg-blue-600 hover:bg-blue-800 
+                                focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-800 
+                                font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                Ocultar Tecnologias Utilizadas
+                            </button>
+                        </div>
+
+                        <!-- Container Principal -->
+
+                        <!-- Caixa de Tecnologias Utilizadas -->
+                        <div class="mostrar tec-utilizadas bg-gray-50 p-6 rounded-lg text-sm mt-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Algumas das tecnologias utilizadas</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 mt-4">
+                                <li>C#</li>
+                                <li>.Net Core</li>
+                                <li>Entity Framework Core</li>
+                                <li>.Net Framework</li>
+                                <li>Entity Framework</li>
+                                <li>Angular (versão 13) com Typescript</li>
+                                <li>Arquitetura MVC</li>
+                                <li>Banco de dados SQL Server</li>
+                                <li>Oracle</li>
+                                <li>Github (controle de código)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Virtual Informática  -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-900">Virtual Informática</h3>
+                                <p class="text-gray-600">Desenvolvedor Full Stack Júnior</p>
+                            </div>
+                            <p class="text-gray-500 italic">Janeiro de 2020 - Junho de 2021 </p>
+                        </div>
+
+                        <div class="desc-atv-cargo mt-10">
+                            <h3 class="text-lg font-semibold text-gray-900">Atividades exercidas</h3>
+                            <p class="text-gray-600 text-justify">
+                                Desenvolvedor Full Stack responsável por criar um assistente para migração de dados
+                                entre bases de dados distintas.
+                                Atuei na manutenção intensiva de uma aplicação Angular que utiliza WebSocket,
+                                implementando melhorias na arquitetura.
+                                Realizei a atualização para a versão 11 do Angular, aplicando conceitos avançados de
+                                Lazy Loading e melhor componentização.
+                                Além disso, transformei a aplicação em um ambiente multi-empresa (multi-tenancy),
+                                utilizando o mesmo banco de dados para gerenciar
+                                dados específicos de cada client
+                        </div>
+
+                        <div class="text-right mt-5">
+                            <button type="button" class="
+                                mostrar-tecnologias text-white bg-blue-600 hover:bg-blue-800 
+                                focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-800 
+                                font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                Ocultar Tecnologias Utilizadas
+                            </button>
+                        </div>
+
+                        <!-- Container Principal -->
+
+                        <!-- Caixa de Tecnologias Utilizadas -->
+                        <div class="mostrar tec-utilizadas bg-gray-50 p-6 rounded-lg text-sm mt-4">
+                            <h4 class="text-lg font-semibold text-gray-900">Algumas das tecnologias utilizadas</h4>
+                            <ul class="list-disc list-inside text-gray-700 space-y-1 mt-4">
+                                <li>C#</li>
+                                <li>.NET Core</li>
+                                <li>Angular (versões 8 a 11) com Typescript</li>
+                                <li>Entity Framework Core</li>
+                                <li>WebSocket javascript</li>
+                                <li>Banco de dados SQL Server</li>
+                                <li>Firebird</li>
+                                <li>MongoDb</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Educação -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Educação</h2>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Descomplica</h3>
+                            <p class="text-gray-600">Pós-graduação em Projetos de Aplicativos Móveis Multiplataforma</p>
+                            <p class="text-gray-600">Modelo: Remoto</p>
+
+                        </div>
+                        <p class="text-gray-500 italic">Outubro 2021 - Outubro 2022</p>
+                    </div>
+
+                    <div class="flex justify-between items-start mt-5">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Descomplica</h3>
+                            <p class="text-gray-600">Pós-graduação em Análise de Dados</p>
+                            <p class="text-gray-600">Modelo: Remoto</p>
+
+                        </div>
+                        <p class="text-gray-500 italic">Outubro 2021 - Outubro 2022</p>
+                    </div>
+
+                    <div class="flex justify-between items-start mt-5">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900">Centro Universitário do Sul de Minas |
+                                UNIS-MG</h3>
+                            <p class="text-gray-600">Bacharel em Sistemas de Informação</p>
+                            <p class="text-gray-600">Modelo: Presencial</p>
+
+                        </div>
+                        <p class="text-gray-500 italic"> Janeiro 2017 - Dezembro 2020</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Evolução - Próximos Passos -->
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Evolução - Próximos passos da carreira</h2>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-600">Iniciei meus estudos de inglês com professor particular há um mês e estou concentrado em expandir meu conhecimento em microserviços e na plataforma AWS. 
+                                Meus próximos passos incluem aprofundar meu entendimento em RabbitMQ e Kafka, além de aprimorar a aplicação de design patterns em meus projetos</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                <!-- Informações Extras - Próximos Passos -->
+                <section>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-2">Extras</h2>
+
+                <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-600">Tenho habilitação nas categorias A e B, estou disponível para viagens e mudança de cidade. 
+                                E ai, curtiu meu perfil, mas falta alguma skill técnica? Terei o prazer em aprender. Estou aberto a oportunidades tanto CLT quanto PJ, sem preferências específicas.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
